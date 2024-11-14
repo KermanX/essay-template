@@ -1,0 +1,138 @@
+@media print {
+  body {
+    background-color: transparent;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+:root {
+  overflow-x: hidden;
+}
+
+* {
+  border-style: solid;
+  border-width: 0px;
+}
+
+body {
+  font-family: "Noto Serif SC", serif;
+  font-optical-sizing: auto;
+  font-size: 1.13rem;
+  line-height: 1.8rem;
+  font-style: normal;
+  background-color: #333333;
+  letter-spacing: 1.4px;
+}
+
+#app {
+  @apply h-max py-50 px-35 box-border mx-auto bg-white print:bg-transparent print:py-10;
+  --scale: 0.95;
+  transform-origin: center 0;
+  transform: scale(var(--scale));
+  width: calc(1191px * var(--scale));
+  counter-reset: h2Counter -1;
+}
+
+h1 {
+  @apply text-4xl text-center mb-8 mt-0 font-medium;
+}
+
+h1 + p {
+  @apply text-center mb-8 text-xl;
+}
+
+[fig-caption=""] {
+  font-size: 0.94rem;
+}
+
+q {
+  color: rgb(59, 124, 197)
+}
+
+q::before {
+  content: ""
+}
+
+q::after {
+  content: ""
+}
+
+p {
+  margin: 2px 0px;
+  text-indent: 2em;
+}
+
+li {
+  text-indent: 0;
+}
+
+[article-ref=""] {
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  text-align: center;
+  counter-increment: h2Counter;
+  counter-reset: h3Counter;
+}
+
+h2::before {
+  content: counter(h2Counter);
+  padding-right: 1em;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  counter-increment: h3Counter;
+  counter-reset: h4Counter;
+}
+
+h3::before {
+  content: counter(h2Counter) "." counter(h3Counter);
+  padding-right: 1em;
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.7rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  counter-increment: h4Counter;
+}
+
+h4::before {
+  content: counter(h2Counter) "." counter(h3Counter) "." counter(h4Counter);
+  padding-right: 1em;
+}
+
+table {
+  width: 100%;
+  margin: 16px 0px;
+  text-indent: 2em;
+}
+
+table th, table td {
+  padding: 4px 0;
+}
+
+sup {
+  margin-top: -1em;
+  line-height: 0;
+}
